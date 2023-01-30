@@ -1,5 +1,15 @@
 'use strict';
 
+function _compare(a, b) {
+  if (Number(a.unitPrice) < Number(b.unitPrice)) {
+    return -1;
+  }
+  if (Number(a.unitPrice) > Number(b.unitPrice)) {
+    return 1;
+  }
+  return 0;
+}
+
 /**
  * Use React without JSX
  */
@@ -58,6 +68,14 @@ function Input({ val, onChange }) {
 function CompareTabe({ unitName, currency, decimal }) {
   const [items, setItems] = useState([])
 
+  // 更新小数保留位数
+  useEffect(() => {
+    items.map(item => {
+      item['unitPrice'] = (Number(item['amount']) / Number(item['qty'])).toFixed(decimal)
+    })
+    setItems(items)
+  }, [decimal])
+
   const handleAdd = () => {
     setItems([
       ...items,
@@ -72,6 +90,12 @@ function CompareTabe({ unitName, currency, decimal }) {
     if (tmpObj['qty'] && tmpObj['amount']) {
       tmpObj['unitPrice'] = (Number(tmpObj['amount']) / Number(tmpObj['qty'])).toFixed(decimal)
     }
+    setItems(tmpArr)
+  }
+
+  const handleSort = () => {
+    const tmpArr = items.slice(0)
+    tmpArr.sort(_compare)
     setItems(tmpArr)
   }
 
@@ -106,7 +130,12 @@ function CompareTabe({ unitName, currency, decimal }) {
         e(
           'th',
           null,
-          `${currency}/${unitName}`
+          `${currency}/${unitName}`,
+          e(
+            'button',
+            { className: 'sort-btn', onClick: handleSort },
+            'Sort ▾'
+          )
         )
       )
     ),
@@ -120,7 +149,7 @@ function CompareTabe({ unitName, currency, decimal }) {
           e(
             'td',
             null,
-            index + 1
+            `#${index + 1}`
           ),
           e(
             'td',
