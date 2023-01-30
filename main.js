@@ -18,7 +18,7 @@ const { useState, useEffect } = React;
 
 function Inputs({ unitName, setUnitName, currency, setCurrency, decimal, setDecimal }) {
   const handleBlur = (e) => {
-    localStorage.setItem('currency') = e.target.value || ''
+    localStorage.setItem('currency', e.target.value || '')
   }
 
   return e(
