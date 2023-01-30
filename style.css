@@ -10,3 +10,26 @@ body {
 .container {
   padding: 4rem 1rem;
 }
+
+.input-label {
+  display: block;
+  margin-bottom: 16px;
+}
+.input-label input {
+  margin-left: 8px;
+  height: 28px;
+  font-size: 16px;
+  line-height: 19px;
+  padding: 2px 4px;
+}
+
+.table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 16px;
+  line-height: 19px;
+}
+.table th {
+  border: 1px solid #666;
+  padding: 4px 6px;
+}
