@@ -35,6 +35,15 @@ function Inputs({ unitName, setUnitName, currency, setCurrency, decimal, setDeci
       )
     ),
     e(
+      'div',
+      { className: 'fast-input' },
+      e(
+        'button',
+        { type: 'button', onClick: () => setUnitName('g') },
+        'g'
+      )
+    ),
+    e(
       'label',
       { className: 'input-label' },
       'Currency/货币单位:',
@@ -180,7 +189,7 @@ function CompareTabe({ unitName, currency, decimal }) {
 
 function App() {
   const [unitName, setUnitName] = useState('')
-  const [currency, setCurrency] = useState(localStorage.getItem('currency') || '')
+  const [currency, setCurrency] = useState(localStorage.getItem('currency') || '元')
   const [decimal, setDecimal] = useState(4) // 默认保留4位小数
 
   return e(

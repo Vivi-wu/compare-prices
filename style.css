@@ -26,6 +26,16 @@ input {
   font-size: 16px;
   line-height: 19px;
 }
+.fast-input {
+  margin-bottom: 24px;
+}
+.fast-input button {
+  border: 1px solid;
+  border-radius: 2px;
+  padding: 8px 12px;
+  font-size: 16px;
+  background-color: white;
+}
 
 .table {
   width: 100%;
@@ -35,12 +45,14 @@ input {
 .table th,
 .table td {
   border: 1px solid #999;
-  padding: 5px 8px;
+  padding: 8px;
+  font-size: 16px;
 }
 .table td input {
-  width: 100px;
-  font-size: 14px;
-  line-height: 16px;
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 16px;
+  height: 32px;
 }
 .table tbody tr:nth-of-type(2n) > td {
   background-color: rgba(135, 208, 250, 0.1);
