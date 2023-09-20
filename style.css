@@ -8,7 +8,7 @@ body {
 }
 
 .container {
-  padding: 4rem 1rem;
+  padding: 2rem 1rem;
 }
 
 input {
@@ -27,7 +27,7 @@ input {
   line-height: 19px;
 }
 .fast-input {
-  margin-bottom: 24px;
+  margin-bottom: 20px;
 }
 .fast-input button {
   border: 1px solid;
@@ -39,7 +39,7 @@ input {
 
 .table {
   width: 100%;
-  margin-top: 32px;
+  margin-top: 16px;
   border-collapse: collapse;
 }
 .table th,
@@ -58,12 +58,33 @@ input {
   background-color: rgba(135, 208, 250, 0.1);
 }
 
-.add-btn,
-.sort-btn {
-  background-color: transparent;
+.btns-wrapper {
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-between;
+}
+.btn {
   border: 0;
   cursor: pointer;
 }
+.add-btn,
+.clear-btn {
+  font-size: 16px;
+  padding: 8px;
+  width: 70px;
+  font-weight: bold;
+  border-radius: 2px
+}
+.add-btn {
+  background-color: rgba(0, 128, 0, 0.9);
+  color: white;
+}
+.clear-btn {
+  border: 1px solid #999;
+  background-color: white;
+  color: #333;
+}
 .sort-btn {
+  background-color: transparent;
   margin-left: 8px;
 }

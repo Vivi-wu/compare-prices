@@ -92,6 +92,10 @@ function CompareTabe({ unitName, currency, decimal }) {
     ])
   }
 
+  const handleClear = () => {
+    setItems([])
+  }
+
   const handleChange = (key, index, e) => {
     const tmpArr = items.slice(0)
     const tmpObj = tmpArr[index]
@@ -109,80 +113,94 @@ function CompareTabe({ unitName, currency, decimal }) {
   }
 
   return e(
-    'table',
-    { className: 'table' },
+    'div',
+    null,
     e(
-      'thead',
-      null,
+      'div',
+      { className: 'btns-wrapper' },
       e(
-        'tr',
-        null,
-        e(
-          'th',
-          null,
-          e(
-            'button',
-            { className: 'add-btn', onClick: handleAdd },
-            '+ 新增'
-          )
-        ),
-        e(
-          'th',
-          null,
-          unitName
-        ),
-        e(
-          'th',
-          null,
-          currency
-        ),
-        e(
-          'th',
-          null,
-          `${currency}/${unitName}`,
-          e(
-            'button',
-            { className: 'sort-btn', onClick: handleSort },
-            'Sort ▾'
-          )
-        )
-      )
+        'button',
+        { className: 'add-btn btn', onClick: handleAdd },
+        '+ 新增'
+      ),
+      e(
+        'button',
+        { className: 'clear-btn btn', onClick: handleClear },
+        'x 清空'
+      ),
     ),
     e(
-      'tbody',
-      null,
-      items.map((i, index) => {
-        return e(
+      'table',
+      { className: 'table' },
+      e(
+        'thead',
+        null,
+        e(
           'tr',
-          { key: index },
+          null,
           e(
-            'td',
+            'th',
             null,
-            `#${index + 1}`
+            '序号'
           ),
           e(
-            'td',
+            'th',
             null,
-            e(Input, {
-              val: i.qty,
-              onChange: (e) => { handleChange('qty', index, e)}
-            })
+            unitName
           ),
           e(
-            'td',
+            'th',
             null,
-            e(Input, {
-              val: i.amount,
-              onChange: (e) => { handleChange('amount', index, e)}
-            })
+            currency
           ),
           e(
-            'td',
+            'th',
             null,
-            i.unitPrice
-          ),
+            `${currency}/${unitName}`,
+            e(
+              'button',
+              { className: 'sort-btn btn', onClick: handleSort },
+              'Sort ▾'
+            )
+          )
         )
-      })
+      ),
+      e(
+        'tbody',
+        null,
+        items.map((i, index) => {
+          return e(
+            'tr',
+            { key: index },
+            e(
+              'td',
+              null,
+              `#${index + 1}`
+            ),
+            e(
+              'td',
+              null,
+              e(Input, {
+                val: i.qty,
+                onChange: (e) => { handleChange('qty', index, e)}
+              })
+            ),
+            e(
+              'td',
+              null,
+              e(Input, {
+                val: i.amount,
+                onChange: (e) => { handleChange('amount', index, e)}
+              })
+            ),
+            e(
+              'td',
+              null,
+              i.unitPrice
+            ),
+          )
+        })
+      )
     )
   )
 }
