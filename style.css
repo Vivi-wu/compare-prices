@@ -8,7 +8,7 @@ body {
 }
 
 .container {
-  padding: 2rem 1rem;
+  padding: 1.5rem 1rem;
 }
 
 input {
@@ -18,7 +18,7 @@ input {
 
 .input-label {
   display: block;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
 .input-label input {
   margin-left: 8px;
@@ -27,7 +27,7 @@ input {
   line-height: 19px;
 }
 .fast-input {
-  margin-bottom: 20px;
+  margin-bottom: 16px;
 }
 .fast-input button {
   border: 1px solid;
@@ -39,12 +39,14 @@ input {
 
 .table {
   width: 100%;
-  margin-top: 16px;
+  margin-top: 14px;
   border-collapse: collapse;
 }
 .table th,
 .table td {
   border: 1px solid #999;
+}
+.table td {
   padding: 8px;
   font-size: 16px;
 }
@@ -59,7 +61,7 @@ input {
 }
 
 .btns-wrapper {
-  margin-top: 40px;
+  margin-top: 28px;
   display: flex;
   justify-content: space-between;
 }
